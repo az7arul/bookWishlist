@@ -1,22 +1,33 @@
-<head>
-  <title>WishList</title>
-</head>
+  <head>
+    <title>WishList</title>
+  </head>
 
-<body>
-  {{> books}}
-</body>
+  <body>
+    <div class='container'>
+      <div class='well'>
+         {{> books}}
+      </div>
+    </div>
+  </body>
+  <template name='books'>
+    <ul>
+      {{#each names}}
+        <li class='names'>
+          {{Name}}
+        </li>
 
-<template name='books'>
-  <ul>
-    {{#each names}}
-      <li class='names'>
-        {{Name}}
-      </li>
-    {{/each}}
-  </ul>
-  {{#if new_book}}  
-    <input id='add-book' value=''/>
-  {{else}}
-  <div class='btn btn-primary' id='addNewBook'>Add new book </div>
-  {{/if}}
-</template>
+        <div class='wishers'>
+          {{#each this.Wishers}}
+          <div class='btn'>
+              {{Name}}
+          </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </ul>
+    {{#if new_book}}  
+      <input id='add-book' value=''/>
+    {{else}}
+    <div class='btn btn-primary' id='addNewBook'>Add new book </div>
+    {{/if}}
+  </template>
